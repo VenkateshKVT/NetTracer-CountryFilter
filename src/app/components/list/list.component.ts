@@ -23,7 +23,14 @@ export class ListComponent implements OnInit {
     , "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad & Tobago", "Tunisia"
     , "Turkey", "Turkmenistan", "Turks & Caicos", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (US)"
     , "Yemen", "Zambia", "Zimbabwe"];
+  public searchText: string;
+  constructor(private service: FilterService) {
+    this.searchText = '';
+  }
+  ngOnInit() {
+     this.service.emitSecarhString$.subscribe((res: any)=> {
+        this.searchText = res;
+     });
+  }
 
-  constructor(private service: FilterService) { }
-  ngOnInit() {}
 }

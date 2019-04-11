@@ -1,7 +1,7 @@
 <mat-card>
     <mat-list>
-     <mat-list-item>
-         Insert Country Here
+     <mat-list-item *ngFor="let country of countriesToBeRendered | filter : searchText">
+         {{country}}
      </mat-list-item>
     </mat-list>
 </mat-card>

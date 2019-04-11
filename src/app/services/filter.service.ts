@@ -25,10 +25,14 @@ export class FilterService {
     , "Turkey", "Turkmenistan", "Turks & Caicos", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (US)"
     , "Yemen", "Zambia", "Zimbabwe"];
 
-
+  private emitSearchString = new Subject<void>();
+  public emitSecarhString$ = this.emitSearchString.asObservable();
   constructor() { }
 
   filterCountries(query) {
+    if(query !== null) {
+      this.emitSearchString.next(query);
+    }
   }
 
 }

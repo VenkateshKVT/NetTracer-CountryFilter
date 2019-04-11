@@ -1,5 +1,5 @@
 <form [formGroup]="searchForm">
   <mat-form-field class="form-group search-box">
-    <input matInput type="text" placeholder="Enter Country Name">
+    <input matInput (keyup)="search($event)" type="text" formControlName="countryName" placeholder="Enter Country Name">
   </mat-form-field>
 </form>
